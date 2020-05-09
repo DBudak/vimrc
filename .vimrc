@@ -4,13 +4,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'mhinz/vim-startify'
 Plug 'w0rp/ale'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -23,9 +22,13 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set autochdir
+nnoremap <C-l> <C-i>
 
 "THEME
 colorscheme gruvbox
+
+"Startify
+nmap <C-\> :Startify<CR>
 
 "NERDTREE File Explorer
 nmap <C-n> :NERDTreeToggle<CR>
@@ -35,6 +38,10 @@ let NERDTreeMapOpenInTab='\r'
 "CTRLP fuzzy file search
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_cmd = 'CtrlP'
+
+"Ag
+let g:ag_working_path_mode="r"
+nmap <C-F> :Ag
 
 "ALE
 let g:ale_fixers = {
